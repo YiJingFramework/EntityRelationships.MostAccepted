@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using YiJingFramework.PrimitiveTypes;
-using YiJingFramework.PrimitiveTypes.GuaWithFixedCount;
-using YiJingFramework.PrimitiveTypes.GuaWithFixedCount.Extensions;
+﻿using YiJingFramework.PrimitiveTypes;
 
 namespace YiJingFramework.EntityRelationships.MostAccepted.EntityYinyangExtensions;
 

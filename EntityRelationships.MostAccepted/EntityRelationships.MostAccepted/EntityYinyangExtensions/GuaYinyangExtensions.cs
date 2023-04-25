@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using YiJingFramework.PrimitiveTypes;
-using YiJingFramework.PrimitiveTypes.GuaWithFixedCount;
-using YiJingFramework.PrimitiveTypes.GuaWithFixedCount.Extensions;
+﻿using YiJingFramework.PrimitiveTypes;
 
 namespace YiJingFramework.EntityRelationships.MostAccepted.EntityYinyangExtensions;
 
@@ -42,7 +34,7 @@ public static class GuaYinyangExtensions
     {
         ArgumentNullException.ThrowIfNull(gua);
 
-        if(gua.Count is 1)
+        if (gua.Count is 1)
         {
             return gua[0];
         }

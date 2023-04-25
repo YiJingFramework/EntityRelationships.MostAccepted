@@ -12,18 +12,18 @@ using YiJingFramework.PrimitiveTypes.GuaWithFixedCount.Extensions;
 namespace YiJingFramework.EntityRelationships.MostAccepted.EntityWuxingExtensions.Tests;
 
 [TestClass()]
-public class GuaWuxingExtensionsTests
+public class GuaTrigramWuxingExtensionsTests
 {
-    private static IEnumerable<Gua> QianDuiLiZhenXunKanGenKun()
+    private static IEnumerable<GuaTrigram> QianDuiLiZhenXunKanGenKun()
     {
-        yield return new Gua(Yinyang.Yang, Yinyang.Yang, Yinyang.Yang);
-        yield return new Gua(Yinyang.Yang, Yinyang.Yang, Yinyang.Yin);
-        yield return new Gua(Yinyang.Yang, Yinyang.Yin, Yinyang.Yang);
-        yield return new Gua(Yinyang.Yang, Yinyang.Yin, Yinyang.Yin);
-        yield return new Gua(Yinyang.Yin, Yinyang.Yang, Yinyang.Yang);
-        yield return new Gua(Yinyang.Yin, Yinyang.Yang, Yinyang.Yin);
-        yield return new Gua(Yinyang.Yin, Yinyang.Yin, Yinyang.Yang);
-        yield return new Gua(Yinyang.Yin, Yinyang.Yin, Yinyang.Yin);
+        yield return new GuaTrigram(Yinyang.Yang, Yinyang.Yang, Yinyang.Yang);
+        yield return new GuaTrigram(Yinyang.Yang, Yinyang.Yang, Yinyang.Yin);
+        yield return new GuaTrigram(Yinyang.Yang, Yinyang.Yin, Yinyang.Yang);
+        yield return new GuaTrigram(Yinyang.Yang, Yinyang.Yin, Yinyang.Yin);
+        yield return new GuaTrigram(Yinyang.Yin, Yinyang.Yang, Yinyang.Yang);
+        yield return new GuaTrigram(Yinyang.Yin, Yinyang.Yang, Yinyang.Yin);
+        yield return new GuaTrigram(Yinyang.Yin, Yinyang.Yin, Yinyang.Yang);
+        yield return new GuaTrigram(Yinyang.Yin, Yinyang.Yin, Yinyang.Yin);
     }
 
     [TestMethod()]

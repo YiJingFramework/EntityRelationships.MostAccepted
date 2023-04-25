@@ -8,46 +8,52 @@ using YiJingFramework.PrimitiveTypes;
 using YiJingFramework.PrimitiveTypes.GuaWithFixedCount;
 using YiJingFramework.PrimitiveTypes.GuaWithFixedCount.Extensions;
 
-namespace YiJingFramework.EntityRelationships.MostAccepted.EntityWuxingExtensions;
+namespace YiJingFramework.EntityRelationships.MostAccepted.EntityYinyangExtensions;
 
 /// <summary>
-/// 关于卦五行的扩展。
-/// Extensions about Wuxing attribute of Guas.
+/// 关于卦阴阳的扩展。
+/// Extensions about Yinyang attribute of Guas.
 /// </summary>
-public static class GuaWuxingExtensions
+public static class GuaYinyangExtensions
 {
     /// <summary>
-    /// 获取卦的五行。
-    /// Get the Wuxing attribute of a Gua.
+    /// 获取卦的阴阳。
+    /// Get the Yinyang attribute of a Gua.
     /// </summary>
     /// <param name="gua">
     /// 卦。
-    /// 须为三爻卦。
+    /// 须为一爻卦或三爻卦。
     /// The Gua.
-    /// Should be a trigram.
+    /// Should exactly have 1 line or 3 lines.
     /// </param>
     /// <returns>
-    /// 五行。
-    /// The Wuxing.
+    /// 阴阳。
+    /// The Yinyang.
     /// </returns>
     /// <exception cref="ArgumentException">
-    /// <paramref name="gua"/> 不是一个三爻卦。
-    /// <paramref name="gua"/> is not a trigram (Gua with 3 lines).
+    /// <paramref name="gua"/> 不是一个一爻或三爻卦。
+    /// <paramref name="gua"/> does not have exact 1 or 3 lines.
     /// </exception>
     /// <exception cref="ArgumentNullException">
     /// <paramref name="gua"/> 是 <c>null</c> 。
     /// <paramref name="gua"/> is <c>null</c>.
     /// </exception>
-    public static Wuxing Wuxing(this Gua gua)
+    public static Yinyang Yinyang(this Gua gua)
     {
         ArgumentNullException.ThrowIfNull(gua);
 
+        if(gua.Count is 1)
+        {
+            return gua[0];
+        }
+
         if (gua.Count is 3)
         {
-            return GuaTrigramWuxingExtensions.WuxingOfCheckedTrigram(gua.GetHashCode());
+            return GuaTrigramYinyangExtensions.YinyangOfCheckedTrigram(gua.GetHashCode());
         }
+
         throw new ArgumentException(
-            $"Gua '{gua}' is not a trigram (Gua with 3 lines).", nameof(gua));
+            $"Gua '{gua}' does not have exact 1 or 3 lines.", nameof(gua));
     }
 
 }

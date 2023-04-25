@@ -1,18 +1,16 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using YiJingFramework.EntityRelationships.MostAccepted.EntityWuxingExtensions;
+using YiJingFramework.EntityRelationships.MostAccepted.EntityYinyangExtensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YiJingFramework.PrimitiveTypes.GuaWithFixedCount;
 using YiJingFramework.PrimitiveTypes;
-using YiJingFramework.PrimitiveTypes.GuaWithFixedCount.Extensions;
 
-namespace YiJingFramework.EntityRelationships.MostAccepted.EntityWuxingExtensions.Tests;
+namespace YiJingFramework.EntityRelationships.MostAccepted.EntityYinyangExtensions.Tests;
 
 [TestClass()]
-public class GuaWuxingExtensionsTests
+public class GuaYinyangExtensionsTests
 {
     private static IEnumerable<Gua> QianDuiLiZhenXunKanGenKun()
     {
@@ -27,18 +25,21 @@ public class GuaWuxingExtensionsTests
     }
 
     [TestMethod()]
-    public void WuxingTest()
+    public void YinyangTest()
     {
-        var wuxings = QianDuiLiZhenXunKanGenKun().Select((g) => g.Wuxing());
-        Assert.IsTrue(wuxings.SequenceEqual(new[] {
-            Wuxing.Metal,
-            Wuxing.Metal,
-            Wuxing.Fire,
-            Wuxing.Wood,
-            Wuxing.Wood,
-            Wuxing.Water,
-            Wuxing.Earth,
-            Wuxing.Earth
+        var yinyangs = QianDuiLiZhenXunKanGenKun().Select(g => g.Yinyang());
+        Assert.IsTrue(yinyangs.SequenceEqual(new[] {
+            Yinyang.Yang,
+            Yinyang.Yin,
+            Yinyang.Yin,
+            Yinyang.Yang,
+            Yinyang.Yin,
+            Yinyang.Yang,
+            Yinyang.Yang,
+            Yinyang.Yin
         }));
+
+        Assert.AreEqual(Yinyang.Yang, new Gua(Yinyang.Yang).Yinyang());
+        Assert.AreEqual(Yinyang.Yin, new Gua(Yinyang.Yin).Yinyang());
     }
 }

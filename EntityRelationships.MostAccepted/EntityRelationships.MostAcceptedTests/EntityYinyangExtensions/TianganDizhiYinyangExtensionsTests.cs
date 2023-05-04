@@ -22,7 +22,7 @@ public class TianganDizhiYinyangExtensionsTests
     }
 
     [TestMethod()]
-    public void YinyangModulo2Test()
+    public void YinyangByMod2Test()
     {
         Assert.AreEqual(Yinyang.Yang, Dizhi.Zi.YinyangByMod2());
         Assert.AreEqual(Yinyang.Yin, Dizhi.Chou.YinyangByMod2());

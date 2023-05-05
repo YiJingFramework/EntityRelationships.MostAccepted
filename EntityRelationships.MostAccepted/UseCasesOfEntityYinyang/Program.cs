@@ -1,18 +1,18 @@
 ﻿using YiJingFramework.PrimitiveTypes;
 using YiJingFramework.PrimitiveTypes.GuaWithFixedCount;
-using YiJingFramework.EntityRelationships.MostAccepted.EntityWuxingExtensions;
+using YiJingFramework.EntityRelationships.MostAccepted.EntityYinyangExtensions;
 
 var qian = GuaTrigram.Parse("111");
-Console.WriteLine(qian.Wuxing());
+Console.WriteLine(qian.Yinyang());
 Console.WriteLine();
-// Ouput: Metal
+// Ouput: Yang
 
 var zi = Dizhi.Zi;
-Console.WriteLine(zi.Wuxing());
+Console.WriteLine(zi.Yinyang());
 Console.WriteLine();
-// Ouput: Water
+// Ouput: Yang
 
 var jia = Tiangan.Jia;
-Console.WriteLine(jia.Wuxing());
+Console.WriteLine(jia.Yinyang());
 Console.WriteLine();
-// Ouput: Wood
+// Ouput: Yang

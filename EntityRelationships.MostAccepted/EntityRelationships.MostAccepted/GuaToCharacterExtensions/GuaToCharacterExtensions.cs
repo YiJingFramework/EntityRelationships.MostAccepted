@@ -8,7 +8,7 @@ using YiJingFramework.PrimitiveTypes;
 using YiJingFramework.PrimitiveTypes.GuaWithFixedCount;
 using YiJingFramework.PrimitiveTypes.GuaWithFixedCount.Extensions;
 
-namespace YiJingFramework.EntityRelationships.MostAccepted.GuaToTextExtensions;
+namespace YiJingFramework.EntityRelationships.MostAccepted.GuaToCharacterExtensions;
 
 /// <summary>
 /// 关于从卦到 unicode 字符的转换扩展。

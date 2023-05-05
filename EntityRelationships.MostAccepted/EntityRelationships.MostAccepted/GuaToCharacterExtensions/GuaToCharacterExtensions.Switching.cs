@@ -8,7 +8,7 @@ using YiJingFramework.PrimitiveTypes;
 using YiJingFramework.PrimitiveTypes.GuaWithFixedCount;
 using YiJingFramework.PrimitiveTypes.GuaWithFixedCount.Extensions;
 
-namespace YiJingFramework.EntityRelationships.MostAccepted.GuaToTextExtensions;
+namespace YiJingFramework.EntityRelationships.MostAccepted.GuaToCharacterExtensions;
 public static partial class GuaToCharacterExtensions
 {
     // Generated in project GuaToCharacterGenerating

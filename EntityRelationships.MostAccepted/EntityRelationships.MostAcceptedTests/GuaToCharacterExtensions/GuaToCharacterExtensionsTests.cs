@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using YiJingFramework.EntityRelationships.MostAccepted.GuaToTextExtensions;
+using YiJingFramework.EntityRelationships.MostAccepted.GuaToCharacterExtensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using YiJingFramework.PrimitiveTypes;
 using YiJingFramework.PrimitiveTypes.GuaWithFixedCount;
 using YiJingFramework.PrimitiveTypes.GuaWithFixedCount.Extensions;
 
-namespace YiJingFramework.EntityRelationships.MostAccepted.GuaToTextExtensions.Tests;
+namespace YiJingFramework.EntityRelationships.MostAccepted.GuaToCharacterExtensions.Tests;
 
 [TestClass()]
 public class GuaToCharacterExtensionsTests

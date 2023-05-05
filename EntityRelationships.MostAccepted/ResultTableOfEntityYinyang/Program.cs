@@ -1,8 +1,8 @@
 ﻿using YiJingFramework.PrimitiveTypes;
 using YiJingFramework.PrimitiveTypes.GuaWithFixedCount;
-using YiJingFramework.EntityRelationships.MostAccepted.EntityWuxingExtensions;
 using YiJingFramework.EntityRelationships.MostAccepted.GuaToCharacterExtensions;
 using System.Text;
+using YiJingFramework.EntityRelationships.MostAccepted.EntityYinyangExtensions;
 
 Console.OutputEncoding = Encoding.UTF8;
 
@@ -26,12 +26,12 @@ static void WriteTableLine(IEnumerable<string> items)
 
     WriteTableLine(guas.Select(gua => gua.ToUnicodeChar().ToString()));
     WriteTableLine(guas.Select(gua => ":-:"));
-    WriteTableLine(guas.Select(gua => gua.Wuxing().ToString("C")));
+    WriteTableLine(guas.Select(gua => gua.Yinyang().ToString("C")));
     Console.WriteLine();
 
     WriteTableLine(guas.Select(gua => gua.ToString()));
     WriteTableLine(guas.Select(gua => ":-:"));
-    WriteTableLine(guas.Select(gua => gua.Wuxing().ToString()));
+    WriteTableLine(guas.Select(gua => gua.Yinyang().ToString()));
     Console.WriteLine();
     Console.WriteLine();
 }
@@ -45,12 +45,12 @@ static void WriteTableLine(IEnumerable<string> items)
 
     WriteTableLine(tiangans.Select(x => x.ToString("C")));
     WriteTableLine(tiangans.Select(x => ":-:"));
-    WriteTableLine(tiangans.Select(x => x.Wuxing().ToString("C")));
+    WriteTableLine(tiangans.Select(x => x.Yinyang().ToString("C")));
     Console.WriteLine();
 
     WriteTableLine(tiangans.Select(x => x.ToString()));
     WriteTableLine(tiangans.Select(x => ":-:"));
-    WriteTableLine(tiangans.Select(x => x.Wuxing().ToString()));
+    WriteTableLine(tiangans.Select(x => x.Yinyang().ToString()));
     Console.WriteLine();
     Console.WriteLine();
 }
@@ -64,12 +64,12 @@ static void WriteTableLine(IEnumerable<string> items)
 
     WriteTableLine(dizhis.Select(x => x.ToString("C")));
     WriteTableLine(dizhis.Select(x => ":-:"));
-    WriteTableLine(dizhis.Select(x => x.Wuxing().ToString("C")));
+    WriteTableLine(dizhis.Select(x => x.Yinyang().ToString("C")));
     Console.WriteLine();
 
     WriteTableLine(dizhis.Select(x => x.ToString()));
     WriteTableLine(dizhis.Select(x => ":-:"));
-    WriteTableLine(dizhis.Select(x => x.Wuxing().ToString()));
+    WriteTableLine(dizhis.Select(x => x.Yinyang().ToString()));
     Console.WriteLine();
     Console.WriteLine();
 }

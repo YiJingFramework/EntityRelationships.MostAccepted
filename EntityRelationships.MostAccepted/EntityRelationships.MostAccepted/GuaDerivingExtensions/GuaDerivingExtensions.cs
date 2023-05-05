@@ -1,5 +1,6 @@
 ﻿using YiJingFramework.PrimitiveTypes;
 using YiJingFramework.PrimitiveTypes.GuaWithFixedCount;
+using YiJingFramework.PrimitiveTypes.GuaWithFixedCount.Extensions;
 
 namespace YiJingFramework.EntityRelationships.MostAccepted.GuaDerivingExtensions;
 
@@ -106,6 +107,15 @@ public static class GuaDerivingExtensions
         return new(lines);
     }
 
+    /// <inheritdoc cref="ReverseLines(Gua, IEnumerable{int}, bool)"/>
+    public static TGua ReverseLines<TGua>(
+        this TGua gua, IEnumerable<int> lineIndexes,
+        bool throwIfOutOfRange = true)
+        where TGua : IGuaWithFixedCount<TGua>
+    {
+        return ReverseLines(gua?.AsGua()!, lineIndexes, throwIfOutOfRange).As<TGua>();
+    }
+
     /// <summary>
     /// 改变卦中几爻，返回修改后的卦。
     /// Reverse some lines in a Gua and returns the modified Gua.
@@ -136,6 +146,13 @@ public static class GuaDerivingExtensions
     {
         return ReverseLines(gua, lineIndexes, true);
     }
+
+    /// <inheritdoc cref="ReverseLines(Gua, int[])"/>
+    public static TGua ReverseLines<TGua>(this TGua gua, params int[] lineIndexes)
+        where TGua : IGuaWithFixedCount<TGua>
+    {
+        return ReverseLines(gua?.AsGua()!, lineIndexes, true).As<TGua>();
+    }
     #endregion
 
     #region Cuogua
@@ -160,6 +177,13 @@ public static class GuaDerivingExtensions
         ArgumentNullException.ThrowIfNull(gua);
 
         return new Gua(gua.Select(line => !line));
+    }
+
+    /// <inheritdoc cref="Cuogua(Gua)" />
+    public static TGua Cuogua<TGua>(this TGua gua)
+        where TGua : IGuaWithFixedCount<TGua>
+    {
+        return Cuogua(gua?.AsGua()!).As<TGua>();
     }
     #endregion
 
@@ -190,6 +214,13 @@ public static class GuaDerivingExtensions
                 yield return gua[i];
         }
         return new Gua(ReverseOrder(gua));
+    }
+
+    /// <inheritdoc cref="Zonggua(Gua)" />
+    public static TGua Zonggua<TGua>(this TGua gua)
+        where TGua : IGuaWithFixedCount<TGua>
+    {
+        return Zonggua(gua?.AsGua()!).As<TGua>();
     }
     #endregion
 
@@ -302,6 +333,13 @@ public static class GuaDerivingExtensions
         {
             yield return new(currentGua.Take(iCurrentGua));
         }
+    }
+
+    /// <inheritdoc cref="Split(Gua, int)" />
+    public static IEnumerable<Gua> Split<TGua>(this TGua gua, int pieceLength)
+        where TGua : IGuaWithFixedCount<TGua>
+    {
+        return Split(gua?.AsGua()!, pieceLength);
     }
     #endregion
 }

@@ -42,6 +42,19 @@ public class GuaDerivingExtensionsTests
             new[] { 0, 2, 3, -234, 1239109 }));
 
         Assert.AreEqual(Gua.Parse(""), Gua.Parse("").ReverseLines(new[] { 1, 2, 3 }, false));
+
+
+        Assert.AreEqual(GuaTrigram.Parse("000"), GuaTrigram.Parse("000").ReverseLines());
+        Assert.AreEqual(GuaTrigram.Parse("000"), GuaTrigram.Parse("111").ReverseLines(0, 1, 2));
+        Assert.AreEqual(GuaTrigram.Parse("000"), GuaTrigram.Parse("101").ReverseLines(0, 2, 1, 1, 1, 1));
+        _ = Assert.ThrowsException<ArgumentOutOfRangeException>(
+            () => GuaTrigram.Parse("101").ReverseLines(0, 2, 3, -234, 1239109));
+
+        Assert.AreEqual(GuaTrigram.Parse("000"), GuaTrigram.Parse("101").ReverseLines(
+            new[] { 0, 2, 3, -234, 1239109 }, false));
+        _ = Assert.ThrowsException<ArgumentOutOfRangeException>(() => GuaTrigram.Parse("101").ReverseLines(
+            new[] { 0, 2, 3, -234, 1239109 }));
+        _ = Assert.ThrowsException<ArgumentNullException>(() => ((GuaTrigram?)null)!.ReverseLines());
     }
 
     [TestMethod()]
@@ -49,6 +62,7 @@ public class GuaDerivingExtensionsTests
     {
         Assert.AreEqual(Gua.Parse("111010011"), Gua.Parse("000101100").Cuogua());
         Assert.AreEqual(Gua.Parse(""), Gua.Parse("").Cuogua());
+        Assert.AreEqual(GuaHexagram.Parse("110011"), GuaHexagram.Parse("001100").Cuogua());
     }
 
     [TestMethod()]
@@ -56,6 +70,8 @@ public class GuaDerivingExtensionsTests
     {
         Assert.AreEqual(new Gua(Gua.Parse("000101100").Reverse()), Gua.Parse("000101100").Zonggua());
         Assert.AreEqual(Gua.Parse(""), Gua.Parse("").Zonggua());
+        Assert.AreEqual(new GuaHexagram(Gua.Parse("001100").Reverse()), 
+            GuaHexagram.Parse("001100").Zonggua());
     }
 
     [TestMethod()]
@@ -85,5 +101,9 @@ public class GuaDerivingExtensionsTests
 
         Assert.AreEqual(2, Gua.Parse("101111").Split(3).Count());
         Assert.AreEqual(null, Gua.Parse("").Split(3).FirstOrDefault());
+
+        Assert.AreEqual(2, GuaHexagram.Parse("101111").Split(3).Count());
+        Assert.AreEqual(Gua.Parse("101"), GuaHexagram.Parse("101111").Split(3).ElementAt(0));
+        Assert.AreEqual(Gua.Parse("111"), GuaHexagram.Parse("101111").Split(3).ElementAt(1));
     }
 }

@@ -22,19 +22,19 @@ public class TianganDizhiYinyangExtensionsTests
     }
 
     [TestMethod()]
-    public void YinyangByMod2Test()
+    public void YinyangTest2()
     {
-        Assert.AreEqual(Yinyang.Yang, Dizhi.Zi.YinyangByMod2());
-        Assert.AreEqual(Yinyang.Yin, Dizhi.Chou.YinyangByMod2());
-        Assert.AreEqual(Yinyang.Yang, Dizhi.Yin.YinyangByMod2());
-        Assert.AreEqual(Yinyang.Yin, Dizhi.Mao.YinyangByMod2());
-        Assert.AreEqual(Yinyang.Yang, Dizhi.Chen.YinyangByMod2());
-        Assert.AreEqual(Yinyang.Yin, Dizhi.Si.YinyangByMod2());
-        Assert.AreEqual(Yinyang.Yang, Dizhi.Wu.YinyangByMod2());
-        Assert.AreEqual(Yinyang.Yin, Dizhi.Wei.YinyangByMod2());
-        Assert.AreEqual(Yinyang.Yang, Dizhi.Shen.YinyangByMod2());
-        Assert.AreEqual(Yinyang.Yin, Dizhi.You.YinyangByMod2());
-        Assert.AreEqual(Yinyang.Yang, Dizhi.Xu.YinyangByMod2());
-        Assert.AreEqual(Yinyang.Yin, Dizhi.Hai.YinyangByMod2());
+        Assert.AreEqual(Yinyang.Yang, Dizhi.Zi.Yinyang());
+        Assert.AreEqual(Yinyang.Yin, Dizhi.Chou.Yinyang());
+        Assert.AreEqual(Yinyang.Yang, Dizhi.Yin.Yinyang());
+        Assert.AreEqual(Yinyang.Yin, Dizhi.Mao.Yinyang());
+        Assert.AreEqual(Yinyang.Yang, Dizhi.Chen.Yinyang());
+        Assert.AreEqual(Yinyang.Yin, Dizhi.Si.Yinyang());
+        Assert.AreEqual(Yinyang.Yang, Dizhi.Wu.Yinyang());
+        Assert.AreEqual(Yinyang.Yin, Dizhi.Wei.Yinyang());
+        Assert.AreEqual(Yinyang.Yang, Dizhi.Shen.Yinyang());
+        Assert.AreEqual(Yinyang.Yin, Dizhi.You.Yinyang());
+        Assert.AreEqual(Yinyang.Yang, Dizhi.Xu.Yinyang());
+        Assert.AreEqual(Yinyang.Yin, Dizhi.Hai.Yinyang());
     }
 }

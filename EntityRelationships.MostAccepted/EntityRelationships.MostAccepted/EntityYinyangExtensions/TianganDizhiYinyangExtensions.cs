@@ -40,7 +40,7 @@ public static class TianganDizhiYinyangExtensions
     /// 阴阳。
     /// The Yinyang.
     /// </returns>
-    public static Yinyang YinyangByMod2(this Dizhi dizhi)
+    public static Yinyang Yinyang(this Dizhi dizhi)
     {
         return new(dizhi.Index % 2 is 1);
     }

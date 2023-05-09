@@ -1,5 +1,5 @@
-﻿using YiJingFramework.PrimitiveTypes;
-using YiJingFramework.EntityRelationships.MostAccepted.WuxingRelationshipExtensions;
+﻿using YiJingFramework.EntityRelationships.MostAccepted.WuxingRelationshipExtensions;
+using YiJingFramework.PrimitiveTypes;
 
 var wood = Wuxing.Wood;
 var metal = Wuxing.Metal;
@@ -13,8 +13,8 @@ Console.WriteLine(
     $"For {wood}, " +
     $"the Wuxing that {relationship} is {wood.GetWuxingThat(relationship)}.");
 
-var converter = SampleWuxingRelationshipToStringConverters.ToLiuqinInEnglish;
-Console.WriteLine($"{relationship.ToString(converter)} of {wood} is {metal}.");
+var conversion = WuxingRelationshipToStringConversions.LiuqinInEnglish;
+Console.WriteLine($"{relationship.ToString(conversion)} of {wood} is {metal}.");
 
 Console.WriteLine();
 // Outputs:

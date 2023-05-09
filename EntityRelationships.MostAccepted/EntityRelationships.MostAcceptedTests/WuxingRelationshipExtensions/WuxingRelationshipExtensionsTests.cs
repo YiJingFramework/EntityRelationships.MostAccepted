@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using YiJingFramework.EntityRelationships.MostAccepted.Shared;
 using YiJingFramework.PrimitiveTypes;
 
 namespace YiJingFramework.EntityRelationships.MostAccepted.WuxingRelationshipExtensions.Tests;
@@ -64,41 +65,50 @@ public class WuxingRelationshipExtensionsTests
     }
 
 
-    private class WuxingRelationshipToStringConverter : IWuxingRelationshipToStringConverter
-    {
-        private readonly Dictionary<WuxingRelationship, string> dictionary;
-        public WuxingRelationshipToStringConverter(Dictionary<WuxingRelationship, string> dictionary)
-        {
-            this.dictionary = dictionary;
-        }
-        public string Convert(WuxingRelationship wuxingRelationship)
-        {
-            return dictionary[wuxingRelationship];
-        }
-    }
-
     [TestMethod()]
     public void ToStringTest()
     {
-        var relationships = new[]
-        {
-            WuxingRelationship.SameAsMe,
-            WuxingRelationship.GeneratingMe,
-            WuxingRelationship.GeneratedByMe,
-            WuxingRelationship.OvercomingMe,
-            WuxingRelationship.OvercameByMe
-        };
-        var dictionary = new Dictionary<WuxingRelationship, string>() {
-            { WuxingRelationship.SameAsMe, "ss" },
-            { WuxingRelationship.GeneratingMe, "s213s" },
-            { WuxingRelationship.GeneratedByMe, "s2131233s" },
-            { WuxingRelationship.OvercomingMe, "s12321321312s" },
-            { WuxingRelationship.OvercameByMe, "s2131323123123123s" }
-        };
-        var converter = new WuxingRelationshipToStringConverter(dictionary);
-        foreach (var relationship in relationships)
-        {
-            Assert.AreEqual(dictionary[relationship], relationship.ToString(converter));
-        }
+        Assert.AreEqual(
+            WuxingRelationship.GeneratingMe.ToString(), 
+            WuxingRelationship.GeneratingMe.ToString(conversion: null));
+        Assert.AreEqual(
+            WuxingRelationship.GeneratedByMe.ToString(),
+            WuxingRelationship.GeneratedByMe.ToString(conversion: null));
+        Assert.AreEqual(
+            WuxingRelationship.OvercameByMe.ToString(),
+            WuxingRelationship.OvercameByMe.ToString(conversion: null));
+        Assert.AreEqual(
+            WuxingRelationship.OvercomingMe.ToString(),
+            WuxingRelationship.OvercomingMe.ToString(conversion: null));
+        Assert.AreEqual(
+            WuxingRelationship.SameAsMe.ToString(),
+            WuxingRelationship.SameAsMe.ToString(conversion: null));
+        Assert.AreEqual(
+            ((WuxingRelationship)100).ToString(),
+            ((WuxingRelationship)100).ToString(conversion: null));
+
+        var c = WuxingRelationshipToStringConversions.InChinese;
+        Assert.AreEqual("生我", WuxingRelationship.GeneratingMe.ToString(c));
+        Assert.AreEqual("我生", WuxingRelationship.GeneratedByMe.ToString(c));
+        Assert.AreEqual("我克", WuxingRelationship.OvercameByMe.ToString(c));
+        Assert.AreEqual("克我", WuxingRelationship.OvercomingMe.ToString(c));
+        Assert.AreEqual("同我", WuxingRelationship.SameAsMe.ToString(c));
+        Assert.AreEqual("100", ((WuxingRelationship)100).ToString(c));
+
+        c = WuxingRelationshipToStringConversions.Liuqin;
+        Assert.AreEqual("父母", WuxingRelationship.GeneratingMe.ToString(c));
+        Assert.AreEqual("子孙", WuxingRelationship.GeneratedByMe.ToString(c));
+        Assert.AreEqual("妻财", WuxingRelationship.OvercameByMe.ToString(c));
+        Assert.AreEqual("官鬼", WuxingRelationship.OvercomingMe.ToString(c));
+        Assert.AreEqual("兄弟", WuxingRelationship.SameAsMe.ToString(c));
+        Assert.AreEqual("100", ((WuxingRelationship)100).ToString(c));
+
+        c = WuxingRelationshipToStringConversions.LiuqinInEnglish;
+        Assert.AreEqual("Parent", WuxingRelationship.GeneratingMe.ToString(c));
+        Assert.AreEqual("Offspring", WuxingRelationship.GeneratedByMe.ToString(c));
+        Assert.AreEqual("Wife&Wealth", WuxingRelationship.OvercameByMe.ToString(c));
+        Assert.AreEqual("Superior&Spirit", WuxingRelationship.OvercomingMe.ToString(c));
+        Assert.AreEqual("Peer", WuxingRelationship.SameAsMe.ToString(c));
+        Assert.AreEqual("100", ((WuxingRelationship)100).ToString(c));
     }
 }

@@ -1,6 +1,6 @@
-﻿using YiJingFramework.PrimitiveTypes;
+﻿using YiJingFramework.EntityRelationships.MostAccepted.EntityWuxingExtensions;
+using YiJingFramework.PrimitiveTypes;
 using YiJingFramework.PrimitiveTypes.GuaWithFixedCount;
-using YiJingFramework.EntityRelationships.MostAccepted.EntityWuxingExtensions;
 
 var qian = GuaTrigram.Parse("111");
 Console.WriteLine(qian.Wuxing());

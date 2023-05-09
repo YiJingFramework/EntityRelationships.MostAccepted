@@ -1,12 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using YiJingFramework.EntityRelationships.MostAccepted.GuaDerivingExtensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using YiJingFramework.PrimitiveTypes.GuaWithFixedCount;
 using YiJingFramework.PrimitiveTypes;
+using YiJingFramework.PrimitiveTypes.GuaWithFixedCount;
 
 namespace YiJingFramework.EntityRelationships.MostAccepted.GuaDerivingExtensions.Tests;
 
@@ -70,7 +64,7 @@ public class GuaDerivingExtensionsTests
     {
         Assert.AreEqual(new Gua(Gua.Parse("000101100").Reverse()), Gua.Parse("000101100").Zonggua());
         Assert.AreEqual(Gua.Parse(""), Gua.Parse("").Zonggua());
-        Assert.AreEqual(new GuaHexagram(Gua.Parse("001100").Reverse()), 
+        Assert.AreEqual(new GuaHexagram(Gua.Parse("001100").Reverse()),
             GuaHexagram.Parse("001100").Zonggua());
     }
 

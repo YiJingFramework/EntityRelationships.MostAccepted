@@ -1,6 +1,4 @@
-﻿using System.Net;
-using System.Xml.Linq;
-using YiJingFramework.EntityRelationships.MostAccepted.WuxingRelationshipExtensions;
+﻿using YiJingFramework.EntityRelationships.MostAccepted.WuxingRelationshipExtensions;
 using YiJingFramework.PrimitiveTypes;
 
 static void WriteTableLine(IEnumerable<string> items)
@@ -25,24 +23,17 @@ var relationships = new[]
     WuxingRelationship.OvercameByMe
 };
 
-var relationshipNames = new[]
-{
-    "同我",
-    "生我",
-    "我生",
-    "克我",
-    "我克"
-};
+var inChinese = WuxingRelationshipToStringConversions.InChinese;
 
 WriteTableLine(wuxings.Select(x => x.ToString("C")).Prepend("关系"));
 WriteTableLine(wuxings.Select(x => ":-:").Prepend(":-:"));
-foreach (var (r, rName) in relationships.Zip(relationshipNames))
-    WriteTableLine(wuxings.Select(x => x.GetWuxingThat(r).ToString("C")).Prepend(rName));
+foreach (var r in relationships)
+    WriteTableLine(wuxings.Select(x => x.GetWuxingThat(r).ToString("C")).Prepend(r.ToString(inChinese)));
 
 Console.WriteLine();
 
 WriteTableLine(wuxings.Select(x => x.ToString()).Prepend("Relationship"));
 WriteTableLine(wuxings.Select(x => ":-:").Prepend(":-:"));
-foreach(var r in relationships)
+foreach (var r in relationships)
     WriteTableLine(wuxings.Select(x => x.GetWuxingThat(r).ToString()).Prepend(r.ToString()));
 

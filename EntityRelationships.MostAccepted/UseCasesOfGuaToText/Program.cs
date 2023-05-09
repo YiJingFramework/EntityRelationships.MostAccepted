@@ -1,6 +1,6 @@
-﻿using YiJingFramework.PrimitiveTypes;
+﻿using YiJingFramework.EntityRelationships.MostAccepted.GuaToCharacterExtensions;
+using YiJingFramework.PrimitiveTypes;
 using YiJingFramework.PrimitiveTypes.GuaWithFixedCount;
-using YiJingFramework.EntityRelationships.MostAccepted.GuaToCharacterExtensions;
 
 Console.OutputEncoding = System.Text.Encoding.Unicode;
 

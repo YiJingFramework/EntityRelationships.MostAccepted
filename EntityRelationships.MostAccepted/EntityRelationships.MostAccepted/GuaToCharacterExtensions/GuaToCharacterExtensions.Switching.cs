@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using YiJingFramework.PrimitiveTypes;
+﻿using YiJingFramework.PrimitiveTypes;
 using YiJingFramework.PrimitiveTypes.GuaWithFixedCount;
-using YiJingFramework.PrimitiveTypes.GuaWithFixedCount.Extensions;
 
 namespace YiJingFramework.EntityRelationships.MostAccepted.GuaToCharacterExtensions;
 public static partial class GuaToCharacterExtensions

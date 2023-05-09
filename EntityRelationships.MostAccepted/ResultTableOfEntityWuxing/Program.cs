@@ -1,8 +1,8 @@
-﻿using YiJingFramework.PrimitiveTypes;
-using YiJingFramework.PrimitiveTypes.GuaWithFixedCount;
+﻿using System.Text;
 using YiJingFramework.EntityRelationships.MostAccepted.EntityWuxingExtensions;
 using YiJingFramework.EntityRelationships.MostAccepted.GuaToCharacterExtensions;
-using System.Text;
+using YiJingFramework.PrimitiveTypes;
+using YiJingFramework.PrimitiveTypes.GuaWithFixedCount;
 
 Console.OutputEncoding = Encoding.UTF8;
 

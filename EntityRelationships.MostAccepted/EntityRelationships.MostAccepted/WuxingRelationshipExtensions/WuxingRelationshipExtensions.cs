@@ -1,4 +1,5 @@
-﻿using YiJingFramework.PrimitiveTypes;
+﻿using YiJingFramework.EntityRelationships.MostAccepted.Shared;
+using YiJingFramework.PrimitiveTypes;
 
 namespace YiJingFramework.EntityRelationships.MostAccepted.WuxingRelationshipExtensions;
 
@@ -51,14 +52,14 @@ public static class WuxingRelationshipExtensions
     }
 
     /// <summary>
-    /// 将 <seealso cref="WuxingRelationship"/> 通过指定的转换器转换为字符串。
-    /// Convert <seealso cref="WuxingRelationship"/>s to strings with the given converter.
+    /// 将 <seealso cref="WuxingRelationship"/> 通过指定的转换方法转换为字符串。
+    /// Convert <seealso cref="WuxingRelationship"/>s to strings with the given conversion method.
     /// </summary>
     /// <param name="relationship">
     /// 要转换的五行关系。
     /// The relationship to convert.
     /// </param>
-    /// <param name="converter">
+    /// <param name="conversion">
     /// 要用的转换器。
     /// The converter to be used.
     /// </param>
@@ -68,10 +69,10 @@ public static class WuxingRelationshipExtensions
     /// </returns>
     public static string ToString(
         this WuxingRelationship relationship,
-        IWuxingRelationshipToStringConverter? converter)
+        ConversionToString<WuxingRelationship>? conversion)
     {
-        if (converter is null)
+        if (conversion is null)
             return relationship.ToString();
-        return converter.Convert(relationship);
+        return conversion(relationship);
     }
 }

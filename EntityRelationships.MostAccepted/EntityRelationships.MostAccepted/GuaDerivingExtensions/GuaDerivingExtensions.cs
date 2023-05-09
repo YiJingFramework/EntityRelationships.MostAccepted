@@ -311,7 +311,7 @@ public static class GuaDerivingExtensions
 
         if (pieceLength <= 0)
             throw new ArgumentOutOfRangeException(
-                nameof(pieceLength), 
+                nameof(pieceLength),
                 $"{nameof(pieceLength)} should be greater than zero.");
 
         Yinyang[] currentGua = new Yinyang[pieceLength];
@@ -329,7 +329,7 @@ public static class GuaDerivingExtensions
             }
         }
 
-        if(iCurrentGua is not 0)
+        if (iCurrentGua is not 0)
         {
             yield return new(currentGua.Take(iCurrentGua));
         }

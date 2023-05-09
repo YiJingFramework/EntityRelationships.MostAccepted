@@ -62,4 +62,43 @@ public class WuxingRelationshipExtensionsTests
                 woodP.GetWuxingThat(WuxingRelationship.GeneratingMe));
         }
     }
+
+
+    private class WuxingRelationshipToStringConverter : IWuxingRelationshipToStringConverter
+    {
+        private readonly Dictionary<WuxingRelationship, string> dictionary;
+        public WuxingRelationshipToStringConverter(Dictionary<WuxingRelationship, string> dictionary)
+        {
+            this.dictionary = dictionary;
+        }
+        public string Convert(WuxingRelationship wuxingRelationship)
+        {
+            return dictionary[wuxingRelationship];
+        }
+    }
+
+    [TestMethod()]
+    public void ToStringTest()
+    {
+        var relationships = new[]
+        {
+            WuxingRelationship.SameAsMe,
+            WuxingRelationship.GeneratingMe,
+            WuxingRelationship.GeneratedByMe,
+            WuxingRelationship.OvercomingMe,
+            WuxingRelationship.OvercameByMe
+        };
+        var dictionary = new Dictionary<WuxingRelationship, string>() {
+            { WuxingRelationship.SameAsMe, "ss" },
+            { WuxingRelationship.GeneratingMe, "s213s" },
+            { WuxingRelationship.GeneratedByMe, "s2131233s" },
+            { WuxingRelationship.OvercomingMe, "s12321321312s" },
+            { WuxingRelationship.OvercameByMe, "s2131323123123123s" }
+        };
+        var converter = new WuxingRelationshipToStringConverter(dictionary);
+        foreach (var relationship in relationships)
+        {
+            Assert.AreEqual(dictionary[relationship], relationship.ToString(converter));
+        }
+    }
 }

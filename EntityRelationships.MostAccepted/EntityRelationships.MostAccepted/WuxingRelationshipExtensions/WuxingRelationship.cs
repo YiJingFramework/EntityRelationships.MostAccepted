@@ -1,6 +1,6 @@
 ﻿using YiJingFramework.PrimitiveTypes;
 
-namespace YiJingFramework.EntityRelationships.MostAccepted;
+namespace YiJingFramework.EntityRelationships.MostAccepted.WuxingRelationshipExtensions;
 
 /// <summary>
 /// <seealso cref="Wuxing"/> 的生克关系。

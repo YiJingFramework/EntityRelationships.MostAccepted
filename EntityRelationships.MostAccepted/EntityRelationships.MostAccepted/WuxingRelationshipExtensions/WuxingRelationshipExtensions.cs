@@ -49,4 +49,29 @@ public static class WuxingRelationshipExtensions
     {
         return me + (int)relationship;
     }
+
+    /// <summary>
+    /// 将 <seealso cref="WuxingRelationship"/> 通过指定的转换器转换为字符串。
+    /// Convert <seealso cref="WuxingRelationship"/>s to strings with the given converter.
+    /// </summary>
+    /// <param name="relationship">
+    /// 要转换的五行关系。
+    /// The relationship to convert.
+    /// </param>
+    /// <param name="converter">
+    /// 要用的转换器。
+    /// The converter to be used.
+    /// </param>
+    /// <returns>
+    /// 结果。
+    /// The result.
+    /// </returns>
+    public static string ToString(
+        this WuxingRelationship relationship,
+        IWuxingRelationshipToStringConverter? converter)
+    {
+        if (converter is null)
+            return relationship.ToString();
+        return converter.Convert(relationship);
+    }
 }

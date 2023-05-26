@@ -8,20 +8,6 @@ namespace YiJingFramework.EntityRelationships.MostAccepted.GuaDerivingExtensions
 public class GuaDerivingExtensionsTests
 {
     [TestMethod()]
-    public void ApplyDerivationTest()
-    {
-        Assert.AreEqual(Yinyang.Yin, new Gua(Yinyang.Yang).ApplyDerivation((gua) => {
-            return new Gua(Yinyang.Yin);
-        })[0]);
-        Assert.AreEqual(Yinyang.Yin, new GuaWith1Line(Yinyang.Yang).ApplyDerivation((gua) => {
-            return new Gua(Yinyang.Yin);
-        })[0]);
-        Assert.AreEqual(0, new GuaWith1Line(Yinyang.Yang).ApplyDerivation((gua) => {
-            return new GuaEmpty();
-        }).Count);
-    }
-
-    [TestMethod()]
     public void ReverseLinesTest()
     {
         Assert.AreEqual(Gua.Parse("000"), Gua.Parse("000").ReverseLines());
